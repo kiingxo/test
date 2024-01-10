@@ -1,44 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:interview/add_employee.dart';
-
 import 'package:interview/componets/searchbar.dart';
 import 'package:interview/constants/appconst.dart';
 import 'package:interview/screens/dashboard_page.dart';
 
 Widget buildEmployeeDataTable() {
   return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
     children: [
       Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: Column(
-            children: [
-              Text(
-                'Employee (${employees.length})',
-                style:
-                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(
+              'Employee (${employees.length})',
+              style: const TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'View and Manage the Employees in your organization',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(),
-                  Row(
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth > 600) {
+                  // Large screen layout
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text("Filter"),
-                      Text("Filter"),
-                      AddButtonn(hint: "Add Employee"),
+                      Text(
+                        'View and Manage the Employees in your organization',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Row(
+                        children: [
+                          Text("Filter"),
+                          Text("Filter"),
+                          AddButtonn(hint: "Add Employee"),
+                        ],
+                      ),
                     ],
-                  )
-                ],
-              ),
-            ],
-          )),
+                  );
+                } else {
+                  // Small screen layout
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        'View and Manage the Employees in your organization',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Text("Filter"),
+                          Text("Filter"),
+                          AddButtonn(hint: "Add Employee"),
+                        ],
+                      ),
+                    ],
+                  );
+                }
+              },
+            ),
+          ],
+        ),
+      ),
       Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey),

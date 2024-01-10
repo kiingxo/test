@@ -3,29 +3,22 @@ import 'package:flutter/material.dart';
 class SideDrawerComponent extends StatefulWidget {
   final int index;
   final ValueChanged<int> onItemSelected;
+
   const SideDrawerComponent({
-    super.key,
+    Key? key,
     required this.index,
     required this.onItemSelected,
-  });
+  }) : super(key: key);
 
   @override
-  State<SideDrawerComponent> createState() => _SideDrawerComponentState();
+  _SideDrawerComponentState createState() => _SideDrawerComponentState();
 }
 
 class _SideDrawerComponentState extends State<SideDrawerComponent> {
-  final items = <({
-    IconData icon,
-    String text,
-  })>[
-    (
-      icon: Icons.menu,
-      text: 'Dashboard',
-    ),
-    (
-      icon: Icons.people,
-      text: 'employees',
-    ),
+  final items = [
+    {'icon': Icons.dashboard, 'text': 'Dashboard'},
+    {'icon': Icons.people, 'text': 'Employees'},
+    {'icon': Icons.settings, 'text': 'Settings'},
   ];
 
   @override
@@ -51,26 +44,23 @@ class _SideDrawerComponentState extends State<SideDrawerComponent> {
       ),
       child: Column(
         children: [
-          for (final (index, item) in items.enumerate())
-            Expanded(
-              child: DrawerTileAtom(
-                icon: item.icon,
-                label: item.text,
-                isSelected: index == widget.index,
-                onTap: () {
-                  widget.onItemSelected(index);
-                },
-              ),
+          for (final item in items)
+            Column(
+              children: [
+                DrawerTileAtom(
+                  icon: item['icon'] as IconData,
+                  label: item['text'] as String,
+                  isSelected: items.indexOf(item) == widget.index,
+                  onTap: () {
+                    widget.onItemSelected(items.indexOf(item));
+                  },
+                ),
+                const SizedBox(height: 10), // Adjust the separation as needed
+              ],
             ),
         ],
       ),
     );
-  }
-}
-
-extension Enumerate<T> on List<T> {
-  List<(int, T)> enumerate() {
-    return List.generate(length, (index) => (index, this[index]));
   }
 }
 
@@ -79,13 +69,14 @@ class DrawerTileAtom extends StatelessWidget {
   final IconData icon;
   final String label;
   final VoidCallback onTap;
+
   const DrawerTileAtom({
-    super.key,
+    Key? key,
     required this.icon,
     required this.isSelected,
     required this.label,
     required this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +100,7 @@ class DrawerTileAtom extends StatelessWidget {
                 fontSize: isSelected ? 17 : 14,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               ),
-            )
+            ),
           ],
         ),
       ),
