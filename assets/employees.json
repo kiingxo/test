@@ -5,7 +5,8 @@
     "group": "Development",
     "department": "HR",
     "session": "2022",
-    "date_added": "2022-01-10"
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
   },
   {
     "name": "Ayomide",
@@ -13,7 +14,8 @@
     "group": "Development",
     "department": "IT",
     "session": "2022",
-    "date_added": "2022-01-10"
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
   },
   {
     "name": "Ayomide",
@@ -21,7 +23,26 @@
     "group": "Development",
     "department": "IT",
     "session": "2022",
-    "date_added": "2022-01-10"
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
+  },
+  {
+    "name": "Israel",
+    "contact": "0893948484",
+    "group": "Laundry",
+    "department": "IT",
+    "session": "2022",
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
+  },
+  {
+    "name": "sadiq",
+    "contact": "1123333444",
+    "group": "hr",
+    "department": "hb",
+    "session": "2022",
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
   },
   {
     "name": "Ayomide",
@@ -29,7 +50,8 @@
     "group": "Development",
     "department": "IT",
     "session": "2022",
-    "date_added": "2022-01-10"
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
   },
   {
     "name": "Ayomide",
@@ -37,7 +59,8 @@
     "group": "Development",
     "department": "IT",
     "session": "2022",
-    "date_added": "2022-01-10"
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
   },
   {
     "name": "Ayomide",
@@ -45,38 +68,30 @@
     "group": "Development",
     "department": "IT",
     "session": "2022",
-    "date_added": "2022-01-10"
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
   },
+
   {
     "name": "Ayomide",
     "contact": "0893948484",
     "group": "Development",
     "department": "IT",
     "session": "2022",
-    "date_added": "2022-01-10"
+    "date_added": "2022-01-10",
+    "email": "ayomide@example.com"
   },
-  {
-    "name": "Ayomide",
-    "contact": "0893948484",
-    "group": "Development",
-    "department": "IT",
-    "session": "2022",
-    "date_added": "2022-01-10"
-  },
-  {
-    "name": "Ayomide",
-    "contact": "0893948484",
-    "group": "Development",
-    "department": "IT",
-    "session": "2022",
-    "date_added": "2022-01-10"
-  },
-  {
-    "name": "Ayomide",
-    "contact": "0893948484",
-    "group": "Development",
-    "department": "IT",
-    "session": "2022",
-    "date_added": "2022-01-10"
-  }
+  
+    {
+      "name": "John Doe",
+      "contact": "08112435545",
+      "group": "Development",
+      "department": "HR",
+      "session": "2022",
+      "date_added": "2022-01-10",
+      "email": "john.doe@example.com"
+    }
+ 
+  
+  
 ]

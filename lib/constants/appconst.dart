@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ImagePath {
-  // static const logoPath = "assets/images/logo.png";
-  // static const loginEmotePath = "assets/images/loginEmote.png";
-  // static const googlePath = "assets/images/google.png";
-}
+class ImagePath {}
 
 class Pallete {
-  static const primaryColor = Colors.white; // primary color
-
+  static const primaryColor = Colors.white;
+  static const searchbarColor = Colors.white30;
   static var seecondaryColor = Colors.blue.shade300;
   static var avatarColor = Colors.purple;
   static var groupinColor1 = Colors.green;

@@ -52,6 +52,9 @@ flutter:
   assets:
     - assets/bold/avatar.png
     - assets/bold/user.png
+    - assets/bold/category.png
+    - assets/bold/information.png
+    - assets/bold/logout.png
     - assets/employees.json
 
    

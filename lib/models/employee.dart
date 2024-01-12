@@ -1,8 +1,7 @@
-// employee_model.dart
-
 class Employee {
   final String name;
   final String contact;
+  // final String email;
   final String group;
   final String department;
   final String session;
@@ -11,6 +10,7 @@ class Employee {
   Employee({
     required this.name,
     required this.contact,
+    // required this.email,
     required this.group,
     required this.department,
     required this.session,
@@ -21,6 +21,7 @@ class Employee {
     return Employee(
       name: json['name'],
       contact: json['contact'],
+      // email: json['email'],
       group: json['group'],
       department: json['department'],
       session: json['session'],

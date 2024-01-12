@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:interview/add_employee.dart';
-
 import 'package:interview/constants/appconst.dart';
 import 'package:interview/models/employee.dart';
 
 List<Employee> employees = [];
+
 Widget buildEmployeeDataTable() {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -26,8 +26,7 @@ Widget buildEmployeeDataTable() {
             LayoutBuilder(
               builder: (context, constraints) {
                 if (constraints.maxWidth > 600) {
-                  // Large screen layout
-                  return Row(
+                  return const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
@@ -37,7 +36,7 @@ Widget buildEmployeeDataTable() {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(width: 20),
+                      SizedBox(width: 20),
                       Row(
                         children: [
                           Text("Filter"),
@@ -48,8 +47,7 @@ Widget buildEmployeeDataTable() {
                     ],
                   );
                 } else {
-                  // Small screen layout
-                  return Column(
+                  return const Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
@@ -59,7 +57,7 @@ Widget buildEmployeeDataTable() {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10),
                       Row(
                         children: [
                           Text("Filter"),
@@ -120,7 +118,7 @@ AppBar buildAppBar() {
         ),
       ),
     ],
-    title: SearchBar1(
+    title: const SearchBar1(
       hinttext: 'Search for groups, employees;settings;etc',
     ),
   );
@@ -155,7 +153,7 @@ class SearchBar1 extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Color.fromARGB(171, 158, 158, 158),
+            fillColor: Pallete.searchbarColor,
             hintText: hinttext,
             hintStyle: const TextStyle(color: Colors.black),
             suffixIcon: const Icon(Icons.search),

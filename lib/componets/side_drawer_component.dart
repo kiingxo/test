@@ -16,9 +16,10 @@ class SideDrawerComponent extends StatefulWidget {
 
 class _SideDrawerComponentState extends State<SideDrawerComponent> {
   final items = [
-    {'icon': Icons.dashboard, 'text': 'Dashboard'},
-    {'icon': Icons.people, 'text': 'Employees'},
-    {'icon': Icons.settings, 'text': 'Settings'},
+    {'image': 'assets/bold/category.png', 'text': 'Dashboard'},
+    {'image': 'assets/bold/user.png', 'text': 'Employees'},
+    {'image': 'assets/bold/information.png', 'text': 'Help & Support'},
+    {'image': 'assets/bold/logout.png', 'text': 'Log Out'},
   ];
 
   @override
@@ -43,12 +44,13 @@ class _SideDrawerComponentState extends State<SideDrawerComponent> {
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           for (final item in items)
             Column(
               children: [
                 DrawerTileAtom(
-                  icon: item['icon'] as IconData,
+                  image: item['image'] as String,
                   label: item['text'] as String,
                   isSelected: items.indexOf(item) == widget.index,
                   onTap: () {
@@ -58,21 +60,46 @@ class _SideDrawerComponentState extends State<SideDrawerComponent> {
                 const SizedBox(height: 10), // Adjust the separation as needed
               ],
             ),
+          const Spacer(), // Add a spacer to push the following items to the bottom
+          Row(
+            children: [
+              _buildCircleAvatar(),
+              const SizedBox(
+                width: 10,
+              ),
+              const Text(
+                'John',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
         ],
       ),
+    );
+  }
+
+  Widget _buildCircleAvatar() {
+    return const CircleAvatar(
+      radius: 20,
+      backgroundImage:
+          AssetImage('assets/bold/user.png'), // Replace with actual image asset
     );
   }
 }
 
 class DrawerTileAtom extends StatelessWidget {
   final bool isSelected;
-  final IconData icon;
+  final String image;
   final String label;
   final VoidCallback onTap;
 
   const DrawerTileAtom({
     Key? key,
-    required this.icon,
+    required this.image,
     required this.isSelected,
     required this.label,
     required this.onTap,
@@ -89,9 +116,11 @@ class DrawerTileAtom extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(
-              icon,
+            Image.asset(
+              image,
               color: isSelected ? Colors.blueAccent : Colors.grey,
+              height: 24,
+              width: 24,
             ),
             const SizedBox(width: 13),
             Text(

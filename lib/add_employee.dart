@@ -12,7 +12,10 @@ class AddButtonn extends StatelessWidget {
         },
         icon: IconButton(
           onPressed: null,
-          icon: Icon(Icons.add),
+          icon: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue,
             minimumSize: const Size(double.infinity, 30),
