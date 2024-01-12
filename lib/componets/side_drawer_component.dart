@@ -57,10 +57,12 @@ class _SideDrawerComponentState extends State<SideDrawerComponent> {
                     widget.onItemSelected(items.indexOf(item));
                   },
                 ),
-                const SizedBox(height: 10), // Adjust the separation as needed
+                const SizedBox(height: 10),
+                if (item['text'] == 'Help & Support')
+                  const SizedBox(height: 20),
               ],
             ),
-          const Spacer(), // Add a spacer to push the following items to the bottom
+          const Spacer(),
           Row(
             children: [
               _buildCircleAvatar(),
@@ -85,8 +87,7 @@ class _SideDrawerComponentState extends State<SideDrawerComponent> {
   Widget _buildCircleAvatar() {
     return const CircleAvatar(
       radius: 20,
-      backgroundImage:
-          AssetImage('assets/bold/user.png'), // Replace with actual image asset
+      backgroundImage: AssetImage('assets/bold/user.png'),
     );
   }
 }

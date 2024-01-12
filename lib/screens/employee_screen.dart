@@ -119,7 +119,7 @@ class EmployeeTable extends ConsumerWidget {
               ),
               DataColumn(label: Text('Department')),
               DataColumn(label: Text('Session')),
-              DataColumn(label: Text('Date Added')),
+              DataColumn(label: Text('Action')),
             ],
             rows: employees.asMap().entries.map((entry) {
               int index = entry.key + 1;
@@ -173,8 +173,15 @@ class EmployeeTable extends ConsumerWidget {
                     ),
                   ),
                   DataCell(Text(employee.department)),
-                  DataCell(Text(employee.session)),
-                  DataCell(Text(employee.dateAdded)),
+                  DataCell(Text('44')),
+                  DataCell(
+                    IconButton(
+                      icon: const Icon(Icons.menu),
+                      onPressed: () {
+                        // Handle action menu button press
+                      },
+                    ),
+                  ),
                 ],
               );
             }).toList(),
