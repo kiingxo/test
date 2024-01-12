@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:interview/add_employee.dart';
@@ -113,7 +114,9 @@ class EmployeeTable extends ConsumerWidget {
               DataColumn(label: Text('S/N')),
               DataColumn(label: Text('Name')),
               DataColumn(label: Text('Contact')),
-              DataColumn(label: Text('Group')),
+              DataColumn(
+                label: Text('Group'),
+              ),
               DataColumn(label: Text('Department')),
               DataColumn(label: Text('Session')),
               DataColumn(label: Text('Date Added')),
@@ -122,6 +125,7 @@ class EmployeeTable extends ConsumerWidget {
               int index = entry.key + 1;
               Employee employee = entry.value;
               final isSelected = selectedEmployees.contains(employee);
+              final randomColor = getRandomColor();
 
               return DataRow(
                 selected: isSelected,
@@ -152,7 +156,22 @@ class EmployeeTable extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  DataCell(Text(employee.group)),
+                  DataCell(
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: randomColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        employee.group,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
                   DataCell(Text(employee.department)),
                   DataCell(Text(employee.session)),
                   DataCell(Text(employee.dateAdded)),
@@ -162,6 +181,16 @@ class EmployeeTable extends ConsumerWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Color getRandomColor() {
+    final random = Random();
+    return Color.fromARGB(
+      255,
+      random.nextInt(256),
+      random.nextInt(256),
+      random.nextInt(256),
     );
   }
 }
