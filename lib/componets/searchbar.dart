@@ -29,7 +29,7 @@ class SearchBar1 extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Color.fromARGB(171, 158, 158, 158),
+            fillColor: const Color.fromARGB(171, 158, 158, 158),
             hintText: hinttext,
             hintStyle: const TextStyle(color: Colors.black),
             suffixIcon: const Icon(Icons.search),

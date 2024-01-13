@@ -1,12 +1,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:interview/add_employee.dart';
+import 'package:interview/componets/add_employee.dart';
 import 'package:interview/componets/side_drawer_component.dart';
 import 'package:interview/componets/widgets.dart';
 import 'package:interview/constants/appconst.dart';
 import 'package:interview/features/employees/data/models/employee.dart';
-import 'package:interview/features/employees/presentation/employee_screen.dart';
+import 'package:interview/features/employees/presentation/screens/employee_screen.dart';
 
 final employeeCountProvider = Provider<int>((ref) {
   List<Employee> employees = [];
@@ -14,7 +14,7 @@ final employeeCountProvider = Provider<int>((ref) {
 });
 
 class EmployeeTable extends ConsumerWidget {
-  const EmployeeTable({Key? key});
+  const EmployeeTable({super.key});
 
   Color getRandomColor() {
     Random random = Random();
@@ -144,7 +144,7 @@ class EmployeeTable extends ConsumerWidget {
 }
 
 class DashboardPage extends StatefulWidget {
-  const DashboardPage({Key? key});
+  const DashboardPage({super.key});
 
   @override
   State<DashboardPage> createState() => _DashboardPageState();
@@ -190,8 +190,8 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Expanded(
                 child: IndexedStack(
-                  index: 1,
-                  children: const [
+                  index: index_,
+                  children: [
                     Text('Dashbboard'),
                     EmployeesScreen(),
                     Text('Settings'),

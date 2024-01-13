@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:interview/features/employees/data/models/employee.dart';
+import 'package:interview/features/employees/presentation/screens/employee_screen.dart';
 
-Widget _titleSection(int employeeCount) {
+Widget titleSection(int employeeCount) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -51,7 +54,13 @@ Widget _titleSection(int employeeCount) {
               //add employee button
               ElevatedButton(
                 onPressed: () {},
-                child: Center(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                ),
+                child: const Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -63,12 +72,6 @@ Widget _titleSection(int employeeCount) {
                     ],
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                ),
               )
             ],
           )
@@ -78,7 +81,7 @@ Widget _titleSection(int employeeCount) {
   );
 }
 
-Widget _content(
+Widget content(
     List<Employee> employees, Set<Employee> selectedEmployees, WidgetRef ref) {
   return Container(
       decoration: BoxDecoration(
@@ -146,12 +149,12 @@ Widget _content(
                     ),
                     child: Text(
                       employee.group,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
                 DataCell(Text(employee.department)),
-                DataCell(Text('44')),
+                const DataCell(Text('44')),
                 DataCell(
                   IconButton(
                     icon: const Icon(Icons.menu),
@@ -165,4 +168,14 @@ Widget _content(
           }).toList(),
         ),
       ));
+}
+
+Color getRandomColor() {
+  final random = Random();
+  return Color.fromARGB(
+    255,
+    random.nextInt(256),
+    random.nextInt(256),
+    random.nextInt(256),
+  );
 }

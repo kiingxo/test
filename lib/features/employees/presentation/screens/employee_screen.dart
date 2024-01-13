@@ -1,14 +1,13 @@
 import 'dart:convert';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:interview/add_employee.dart';
 import 'package:interview/features/employees/data/models/employee.dart';
+import 'package:interview/features/employees/presentation/screens/employee_table.dart';
 
 final selectedEmployeesProvider = Provider<Set<Employee>>((ref) => {});
 
 class EmployeesScreen extends StatelessWidget {
-  const EmployeesScreen({Key? key});
+  const EmployeesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
