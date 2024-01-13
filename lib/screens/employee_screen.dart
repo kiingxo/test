@@ -65,13 +65,19 @@ class EmployeeTable extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      const Text(
-                        'Employees',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Wrap(
+              direction: Axis.vertical,
+              children: [
+                Text(
+                  'Employees',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                       const Text(
                         'View and manage employees in your organization',
                         style: TextStyle(
