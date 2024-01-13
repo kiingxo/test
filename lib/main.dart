@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:interview/screens/dashboard_page1.dart';
+import 'package:interview/features/dashboard/dashboard_page1.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,7 +1,7 @@
 // employee_controller.dart
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:interview/models/employee.dart';
+import 'package:interview/features/employees/data/models/employee.dart';
 
 class EmployeeController extends ChangeNotifier {
   List<Employee> employees = [];

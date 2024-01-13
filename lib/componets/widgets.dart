@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interview/add_employee.dart';
 import 'package:interview/constants/appconst.dart';
-import 'package:interview/models/employee.dart';
+import 'package:interview/features/employees/data/models/employee.dart';
 
 List<Employee> employees = [];
 

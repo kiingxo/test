@@ -5,8 +5,8 @@ import 'package:interview/add_employee.dart';
 import 'package:interview/componets/side_drawer_component.dart';
 import 'package:interview/componets/widgets.dart';
 import 'package:interview/constants/appconst.dart';
-import 'package:interview/models/employee.dart';
-import 'package:interview/screens/employee_screen.dart';
+import 'package:interview/features/employees/data/models/employee.dart';
+import 'package:interview/features/employees/presentation/employee_screen.dart';
 
 final employeeCountProvider = Provider<int>((ref) {
   List<Employee> employees = [];
@@ -190,7 +190,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Expanded(
                 child: IndexedStack(
-                  index: index_,
+                  index: 1,
                   children: const [
                     Text('Dashbboard'),
                     EmployeesScreen(),
